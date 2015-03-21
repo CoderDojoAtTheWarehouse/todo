@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To do</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+  </head>
+  <body>
+    <h1>To Do list for {{user.username}}</h1>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        {% for item in user.items %}
+        <tr>
+          <td>{{item}}</td>
+          <td><a href="delete/{{loop.index}}">Delete</a></td>
+        </tr>
+       {% endfor %}
+      </tbody>
+    </table>
+    <form action="add" method="POST">
+      <input type="text" name="item" />
+      <input type="submit" value="Add" />
+    </form>
+    <p><a href="logout">Logout</a></p>
+  </body>
+</html>
