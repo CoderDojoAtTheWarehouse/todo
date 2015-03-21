@@ -60,12 +60,11 @@ def add():
     else:
         abort(403)
 
-@app.route('/delete/<int:item>')
+@app.route('/delete/<item>')
 def delete(item):
     app.logger.info('delete')
     if 'username' in session:
-        User.objects(username=session['username']).update_one(unset__items_0)
-        User.objects(username=session['username']).update_one(pull__items=None)
+        User.objects(username=session['username']).update_one(pull__items=item)
         return redirect(url_for('index'))
     else:
         abort(403)    

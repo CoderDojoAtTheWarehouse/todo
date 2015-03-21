@@ -14,7 +14,7 @@
         {% for item in user.items %}
         <tr>
           <td>{{item}}</td>
-          <td><a href="delete/{{loop.index}}">Delete</a></td>
+          <td><a href="delete/{{item}}">Delete</a></td>
         </tr>
        {% endfor %}
       </tbody>
