@@ -7,6 +7,18 @@ application in Python. The view templates will be defined using [Jinja 2](http:/
 and the users and todo items will be stored in a [MongoDB](https://www.mongodb.org/) database hosted
 on [Compose](http://www.compose.io).
 
+## Install Python
+
+You will need to install the [Python](https://www.python.org/downloads/) download and execute the installer;
+
+Setting up their Windows paths:
+```
+Python path C:/FOLDER/PYTHON
+Pip path C:/FOLDER/PYTHON/Scripts
+```
+
+
+
 ## Install Flask
 
 You will need to install the [Flask](http://flask.pocoo.org/) framework by executing the following command:
