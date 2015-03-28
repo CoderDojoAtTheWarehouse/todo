@@ -33,6 +33,20 @@ def index():
         return render_template('index.html', user=user)
     return redirect(url_for('login'))
 
+@app.route('/register', methods=['GET','POST'])
+def register():
+    app.logger.info('register')
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        User(username=request.form['username'],password=request.form['password']).save()
+        user = User.objects(username = session['username']).first();
+        if(user):
+            return redirect(url_for('index'))
+        else:
+            return render_template('login.html', error='Invalid username or password')
+    else:
+        return render_template('register.html')
+
 @app.route('/login', methods=['GET','POST'])
 def login():
     app.logger.info('login')
